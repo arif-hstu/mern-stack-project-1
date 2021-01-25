@@ -22,20 +22,10 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-// class HelloWorld extends React.Component {
-//     render() {
-//         const continents = ['Africa', 'America', 'Asia', 'Australia', 'Europe'];
-//         const helloContinents = Array.from(continents, c => `Hello ${c}!`);
-//         const message = helloContinents.join(' ');
-//         return (
-//             <div title="Outer div">
-//                 <h1>{message}</h1>
-//             </div>
-//         );
-//     }
-// }
-// const element = <HelloWorld />;
-// ReactDOM.render(element, document.getElementById('content'));
+{
+  /*pg 50 */
+}
+
 var IssueFilter = /*#__PURE__*/function (_React$Component) {
   _inherits(IssueFilter, _React$Component);
 
@@ -71,7 +61,9 @@ var IssueTable = /*#__PURE__*/function (_React$Component2) {
   _createClass(IssueTable, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, "This is a placeholder for a form to add an issue.");
+      return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "ID"), /*#__PURE__*/React.createElement("th", null, "Title"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement(IssueRow, {
+        issue_title: "Title of the first issue"
+      }), " ", /*#__PURE__*/React.createElement(IssueRow, null), " "));
     }
   }]);
 
@@ -118,6 +110,32 @@ var IssueList = /*#__PURE__*/function (_React$Component4) {
   }]);
 
   return IssueList;
+}(React.Component);
+
+var IssueRow = /*#__PURE__*/function (_React$Component5) {
+  _inherits(IssueRow, _React$Component5);
+
+  var _super5 = _createSuper(IssueRow);
+
+  function IssueRow() {
+    _classCallCheck(this, IssueRow);
+
+    return _super5.apply(this, arguments);
+  }
+
+  _createClass(IssueRow, [{
+    key: "render",
+    value: function render() {
+      var style = this.props.rowStyle;
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+        style: style
+      }, this.props.issue_id), /*#__PURE__*/React.createElement("td", {
+        style: style
+      }, this.props.issue_title));
+    }
+  }]);
+
+  return IssueRow;
 }(React.Component);
 
 var element = /*#__PURE__*/React.createElement(IssueList, null);
